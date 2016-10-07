@@ -1,6 +1,6 @@
 # User must set this
 
-datadir = 'links/'
+datadir = '../links/'
 
 # Import packages
 
@@ -24,6 +24,7 @@ relevantYears = range(2010,2017)
 
 # Run scraper
 for iYear in relevantYears:
+    print('Getting Links for', iYear)
     for iType in releaseType:
         if iType == 'wide':
             print('Entering wide release mode')
@@ -33,3 +34,5 @@ for iYear in relevantYears:
             print('Entering limited release mode')
             typeString = 'limited'
             mojo.scrapeLinks(typeString, iYear, iType, datadir)
+    print('pausing for two minutes before starting next year')
+    time.sleep(120)
